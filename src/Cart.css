@@ -1,0 +1,17 @@
+.border {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #f9fafb;
+}
+
+.text-xl {
+  color: #2563eb;
+}
+
+.text-gray-500 {
+  color: #6b7280;
+}
+
+.my-1 {
+  margin: 0.5rem 0;
+}
