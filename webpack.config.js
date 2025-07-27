@@ -1,3 +1,4 @@
+const Dotenv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 const path = require('path');
@@ -10,7 +11,9 @@ module.exports = {
     historyApiFallback: true,
   },
   output: {
-    publicPath: 'auto',
+    path: path.resolve(__dirname, 'public'),
+    filename: 'main.[contenthash].js',
+    publicPath: process.env.PUBLIC_PATH,
     clean: true,
   },
   resolve: {
@@ -30,6 +33,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new Dotenv(),
     new ModuleFederationPlugin({
       name: 'cart',
       filename: 'remoteEntry.js',
@@ -40,6 +44,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: './public/index.html',
+      inject: 'body',
     }),
   ],
 };
