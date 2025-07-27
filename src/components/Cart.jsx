@@ -3,14 +3,14 @@ import "../Cart.css";
 
 const Cart = ({ items = [] }) => {
   return (
-    <div className="border p-4">
-      <h2 className="text-xl font-bold mb-2">🛒 Cart</h2>
+    <div className="cart-container">
+      <h2 className="cart-title">🛒 Cart</h2>
       {items.length === 0 ? (
-        <p className="text-gray-500">No items in cart.</p>
+        <p className="empty-cart-message">Your cart is empty.</p>
       ) : (
-        <ul>
+        <ul className="cart-items-list">
           {items.map((item, i) => (
-            <li key={i} className="my-1">
+            <li key={i} className="cart-item">
               {item}
             </li>
           ))}
@@ -21,3 +21,4 @@ const Cart = ({ items = [] }) => {
 };
 
 export default Cart;
+
